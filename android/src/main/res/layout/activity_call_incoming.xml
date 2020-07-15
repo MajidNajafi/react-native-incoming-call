@@ -27,7 +27,7 @@
             android:id="@+id/tvCallType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="sans-serif"
             android:textColor="#FFFFFF"
             android:textSize="12dp" />
@@ -39,13 +39,13 @@
             android:autoText="false"
             android:text="Incoming Call"
             android:textColor="#FFFFFF"
-            android:textSize="24dp" />
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif"
             android:textColor="#FFFFFF"
             android:textSize="36dp" />
