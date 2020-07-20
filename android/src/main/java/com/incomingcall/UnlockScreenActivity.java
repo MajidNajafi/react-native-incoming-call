@@ -139,8 +139,7 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
                 Intent i = new Intent(IncomingCallModule.reactContext, activityClass);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 Bundle b = new Bundle();
-                i.putString("uuid", uuid);
-                i.putBoolean("done", true);
+                i.putString("uuid", uuid + " answer");
                 i.putExtras(b);
                 IncomingCallModule.reactContext.startActivity(i);
             } catch (Exception e) {
@@ -170,8 +169,7 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
                 Intent i = new Intent(IncomingCallModule.reactContext, activityClass);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 Bundle b = new Bundle();
-                i.putString("uuid", uuid);
-                i.putBoolean("done", false);
+                i.putString("uuid", uuid + " reject");
                 i.putExtras(b);
                 IncomingCallModule.reactContext.startActivity(i);
             } catch (Exception e) {
