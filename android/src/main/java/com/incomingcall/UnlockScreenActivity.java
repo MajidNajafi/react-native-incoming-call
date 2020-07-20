@@ -154,7 +154,7 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
     private void dismissDialing() {
         WritableMap params = Arguments.createMap();
         params.putBoolean("done", false);
-        b.putString("uuid", uuid);
+        params.putString("uuid", uuid);
 
         if (IncomingCallModule.reactContext.hasCurrentActivity()) {
             // App in foreground or background, send event for app to listen
