@@ -124,7 +124,7 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
     private void acceptDialing() {
         WritableMap params = Arguments.createMap();
         params.putBoolean("done", true);
-        params.putString("uuid", uuid);
+        params.putString("uuid", "answer-" + uuid);
 
         if (IncomingCallModule.reactContext.hasCurrentActivity() && isAppOnForeground(IncomingCallModule.reactContext)) {
             // App in foreground, send event for app to listen
@@ -139,8 +139,8 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
                 Intent i = new Intent(IncomingCallModule.reactContext, activityClass);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 Bundle b = new Bundle();
-                b.putString("uuid", "false");
-                b.putBoolean("done", false);
+                b.putString("uuid", "answer-" + uuid);
+                b.putBoolean("done", true);
                 i.putExtras(b);
                 IncomingCallModule.reactContext.startActivity(i);
             } catch (Exception e) {
@@ -155,7 +155,7 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
     private void dismissDialing() {
         WritableMap params = Arguments.createMap();
         params.putBoolean("done", false);
-        params.putString("uuid", uuid);
+        b.putString("uuid", "reject-" + uuid);
 
         if (IncomingCallModule.reactContext.hasCurrentActivity()) {
             // App in foreground or background, send event for app to listen
@@ -170,7 +170,8 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
                 Intent i = new Intent(IncomingCallModule.reactContext, activityClass);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 Bundle b = new Bundle();
-                b.putString("uuid", uuid);
+                b.putString("uuid", "reject-" + uuid);
+                b.putBoolean("done", false);
                 i.putExtras(b);
                 IncomingCallModule.reactContext.startActivity(i);
             } catch (Exception e) {
