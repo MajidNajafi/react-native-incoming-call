@@ -140,6 +140,7 @@ public class UnlockScreenActivity extends AppCompatActivity implements UnlockScr
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 Bundle b = new Bundle();
                 b.putString("uuid", uuid);
+                b.putString("done", false);
                 i.putExtras(b);
                 IncomingCallModule.reactContext.startActivity(i);
             } catch (Exception e) {
